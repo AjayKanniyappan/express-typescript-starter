@@ -1,7 +1,17 @@
-import express, { Request, Response } from 'express';
+import express, { Express, Request, Response } from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import compression from 'compression';
 
-const app = express();
+const app: Express = express();
 
-app.get('/', (req: Request, res: Response) => res.send('Hello World!'));
+app.use(cors());
+app.use(helmet());
+app.use(compression());
+app.disable('x-powered-by');
+
+app.get('/', (_req: Request, res: Response) => {
+  res.send('Hello World!');
+});
 
 export default app;

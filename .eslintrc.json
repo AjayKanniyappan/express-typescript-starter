@@ -26,5 +26,10 @@
     "no-console": "warn", // 👈 TO AVOID CONSOLE ERRORS
     "no-debugger": "warn" // 👈 TO AVOID DEBUGGER ERRORS
     //"array-element-newline":: ["error", "consistent"],
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
