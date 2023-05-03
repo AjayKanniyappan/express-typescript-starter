@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import app from '@/app';
-import config from '@config/index';
+import config from '@/configs/index';
 
 const server = app.listen(config.PORT, () => {
   console.log(`Server Started on Port ${config.PORT} 🚀`);
