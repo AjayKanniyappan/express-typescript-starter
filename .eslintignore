@@ -1,0 +1,32 @@
+# DEPENDENCY DIRECTORIES
+node_modules
+
+# BUILD FOLDERS
+out
+build
+dist
+
+# DEBUG LOGS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ENV FILES
+.env
+.env*.local
+
+# Logs
+logs
+*.log
+*.logs
+
+# MISC
+.DS_Store
+*.pem
+
+# npm
+package-lock.json
+
+# TESTING FOLDERS
+coverage

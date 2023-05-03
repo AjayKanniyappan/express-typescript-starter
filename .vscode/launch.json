@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "configurations": [
+    {
+      "name": "Debug Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "program": "${workspaceFolder}/src/server.ts",
+      "restart": true,
+      "runtimeArgs": ["--inspect"]
+    }
+  ]
+}
