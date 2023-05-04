@@ -1,7 +1,9 @@
 import express, { Express, Request, Response, json, urlencoded } from 'express';
+import path from 'path';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
+import cookieParser from 'cookie-parser';
 import config from '@configs/index';
 import compressFilter from '@utils/compressFilter';
 
@@ -12,6 +14,11 @@ const app: Express = express();
  */
 app.use(json());
 app.use(urlencoded({ extended: false }));
+
+/**
+ * Cookie Object Parser
+ */
+app.use(cookieParser());
 
 /**
  * JSON Response Formatting
@@ -37,7 +44,7 @@ app.disable('x-powered-by');
  * Initial Route
  */
 app.get('/', (_req: Request, res: Response) => {
-  res.send({ hi: 'hi' });
+  res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
 export default app;

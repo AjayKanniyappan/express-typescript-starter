@@ -1,17 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-console */
 import app from '@/app';
-import config from '@/configs/index';
+import config from '@configs/index';
 
 const server = app.listen(config.PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server Started on Port ${config.PORT} 🚀`);
 });
 
-server.on('error', (err: any) => {
+server.on('error', (err: ETS.ServerError) => {
   if (err.code === 'EADDRINUSE') {
+    // eslint-disable-next-line no-console
     console.log(`⚠️  localhost port ${config.PORT} already in use!!!`);
   } else {
-    console.log(err);
+    throw err;
   }
 });
 

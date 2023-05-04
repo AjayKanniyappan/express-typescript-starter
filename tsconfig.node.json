@@ -4,9 +4,18 @@
     "paths": {
       "@/*": ["src/*"],
       "@configs/*": ["src/configs/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@database/*": ["src/database/*"],
+      "@libs/*": ["src/libs/*"],
       "@middlewares/*": ["src/middlewares/*"],
-      "@utils/*": ["src/utils/*"]
+      "@models/*": ["src/models/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"],
+      "@views/*": ["src/views/*"]
     }
   },
+  "files": ["src/types/index.d.ts"],
+  "include": ["src"],
   "exclude": ["build", "node_modules"]
 }

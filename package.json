@@ -25,9 +25,10 @@
     "url": "https://ajaykanniyappan.com"
   },
   "scripts": {
-    "build": "npm run build:clean && tsc && tsc-alias",
+    "build": "npm run build:clean && tsc && tsc-alias && npm run copyFiles",
     "build:clean": "rimraf build",
     "clean": "git clean -dfX",
+    "copyFiles": "copyfiles -u 1 src/**/*.html src/**/*.css build/",
     "dev": "nodemon",
     "lint": "eslint --fix --max-warnings 0 .",
     "prepare": "husky install",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -44,12 +46,14 @@
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
+    "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.16.3",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",

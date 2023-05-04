@@ -6,6 +6,9 @@
     "build"
   ],
   "watch": [
-    "src"
+    ".env",
+    "src",
+    "tsconfig.json",
+    "tsconfig.node.json"
   ]
 }
