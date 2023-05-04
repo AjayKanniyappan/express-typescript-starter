@@ -6,6 +6,7 @@
       "@configs/*": ["src/configs/*"],
       "@controllers/*": ["src/controllers/*"],
       "@database/*": ["src/database/*"],
+      "@handlers/*": ["src/handlers/*"],
       "@libs/*": ["src/libs/*"],
       "@middlewares/*": ["src/middlewares/*"],
       "@models/*": ["src/models/*"],

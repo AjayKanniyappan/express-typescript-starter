@@ -4,8 +4,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import morgan from 'morgan';
 import config from '@configs/index';
 import compressFilter from '@utils/compressFilter';
+import httpErrorHandlers from '@handlers/httpErrorHandlers';
+import logger from '@middlewares/logger';
 
 const app: Express = express();
 
@@ -41,10 +44,26 @@ app.use(compression({ filter: compressFilter })); // 👈 Compression Is Used To
 app.disable('x-powered-by');
 
 /**
+ * Back End Logger
+ * If You Don't want comment it
+ */
+app.use(
+  morgan('combined', {
+    stream: {
+      write: (message: string) => {
+        logger.info(message.trim());
+      },
+    },
+  }),
+);
+
+/**
  * Initial Route
  */
 app.get('/', (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '/views/index.html'));
 });
+
+httpErrorHandlers(app); // 👈 Http Error Handlers
 
 export default app;
