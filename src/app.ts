@@ -9,6 +9,7 @@ import config from '@configs/index';
 import compressFilter from '@utils/compressFilter';
 import httpErrorHandlers from '@handlers/httpErrorHandlers';
 import logger from '@middlewares/logger';
+import router from '@routes/index.route';
 
 const app: Express = express();
 
@@ -56,6 +57,8 @@ app.use(
     },
   }),
 );
+
+app.use(router);
 
 /**
  * Initial Route

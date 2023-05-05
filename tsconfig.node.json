@@ -4,6 +4,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@configs/*": ["src/configs/*"],
+      "@constants/*": ["src/constants/*"],
       "@controllers/*": ["src/controllers/*"],
       "@database/*": ["src/database/*"],
       "@handlers/*": ["src/handlers/*"],
