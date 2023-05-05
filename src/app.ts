@@ -1,12 +1,11 @@
-import express, { Express, Request, Response, json, urlencoded } from 'express';
-import path from 'path';
-import cors from 'cors';
-import helmet from 'helmet';
+import express, { Express, json, urlencoded } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import helmet from 'helmet';
 import morgan from 'morgan';
-import config from '@configs/index';
 import compressFilter from '@utils/compressFilter';
+import config from '@configs/index';
 import httpErrorHandlers from '@handlers/httpErrorHandlers';
 import logger from '@middlewares/logger';
 import router from '@routes/index.route';
@@ -58,14 +57,7 @@ app.use(
   }),
 );
 
-app.use(router);
-
-/**
- * Initial Route
- */
-app.get('/', (_req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '/views/index.html'));
-});
+app.use(router); // 👈 Routes Handlers
 
 httpErrorHandlers(app); // 👈 Http Error Handlers
 
