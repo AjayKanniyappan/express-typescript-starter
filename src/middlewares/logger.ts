@@ -1,4 +1,5 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format } from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
 import os from 'os';
 
 function customFormat() {
@@ -26,8 +27,23 @@ const logger = createLogger({
   level: 'info',
   format: customFormat(),
   transports: [
-    new transports.File({ filename: 'logs/status.log' }),
-    new transports.File({ level: 'error', filename: 'logs/error.log' }),
+    new DailyRotateFile({
+      filename: 'logs/status-%DATE%.log',
+      datePattern: 'DD-MM-YYYY',
+    }),
+    new DailyRotateFile({
+      level: 'verbose',
+      filename: 'logs/info-%DATE%.log',
+      datePattern: 'DD-MM-YYYY',
+    }),
+    new DailyRotateFile({
+      level: 'error',
+      filename: 'logs/error-%DATE%.log',
+      datePattern: 'DD-MM-YYYY',
+      /* zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d', */ // 👈 If you want date and size limit enable it
+    }),
     // new transports.Console(), // 👈 If You Need Logs In Console Enable It
   ],
 });

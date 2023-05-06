@@ -8,6 +8,7 @@
       "@controllers/*": ["src/controllers/*"],
       "@database/*": ["src/database/*"],
       "@handlers/*": ["src/handlers/*"],
+      "@helpers/*": ["src/helpers/*"],
       "@libs/*": ["src/libs/*"],
       "@middlewares/*": ["src/middlewares/*"],
       "@models/*": ["src/models/*"],
