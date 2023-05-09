@@ -12,6 +12,12 @@ declare namespace ETS {
     SECRET_KEY: string;
   };
 
+  interface User {
+    name: string;
+    email: string;
+    password: string;
+  }
+
   interface DatabaseMap {
     [key: string]: mongoose.Connection;
   }
